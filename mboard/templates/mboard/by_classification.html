@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html"; charset="UTF-8">
+    <title>{{current_rubric.name}} - Каталог</title>
+</head>
+<body>
+    <h1>Товары</h1>
+    <h2>Категория: {{current_rubric.name}}</h2>
+    <div>
+        <a href="/mboard/">Главная</a>
+        {% for classification in classifications %}
+        <a href="/mboard/{{classification.pk}}/">{{classification.name}}</a>
+        {% endfor %}
+    </div>
+    {% for bb in bbs %}
+    <div>
+        <h2>{{bb.name}}</h2>
+        <p>{{bb.description}}</p>
+        <p>{{bb.price}}</p>
+        <p>{{bb.published|date:"d.m.Y H:i:s"}}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type"
+              content="text/html"; charset="utf-8">
+        <title>Каталог товаров</title>
+    </head>
+    <body>
+        <h1>Продукция</h1>
+        <div>
+            <a href="{% url 'index' %}">Главная</a>
+            {% for classification in classifications %}
+            <a href="{% url 'by_classification' classification.pk %}">{{classification.name}}</a>
+            {% endfor %}
+        </div>
+        {% for bb in bbs %}
+        <div>
+            <h2>{{ bb.name }}</h2>
+            <p>{{ bb.description }}</p>
+            <p>{{ bb.price }}</p>
+            <p><a href="/mboard/{{bb.classification.pk}}">{{bb.classification.name}}</a></p>
+            <p>{{ bb.published|date:"d.m.Y H:i:s" }}</p>
+        </div>
+        {% endfor %}
+    </body>
+</html>
