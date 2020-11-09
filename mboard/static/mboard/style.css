@@ -1,0 +1,19 @@
+h1 {
+    front-size: 40pt;
+    text-transform: uppercase;
+    text-align: center;
+    background: url("orig.jpg") left / auto 100% no-repeat;
+}
+nav {
+    margin-top: 100px;
+    font-size: 16pt;
+    width: 150px;
+    float: left;
+}
+nav a {
+    display: block;
+    margin: 10px 0px;
+}
+section {
+    margin-left: 200px;
+}

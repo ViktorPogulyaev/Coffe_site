@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta http-equiv="Content-Type"
+              content="text/html"; charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="{% static 'mboard/style.css' %}">
+        <title>{% block title %}Главная - Каталог товаров{% endblock %}</title>
+    </head>
+    <body>
+        <nav>
+            <a href="{% url 'index' %}">Главная</a>
+            {% for classification in classifications %}
+            <a href="{% url 'by_classification' classification.pk %}">{{classification.name}}</a>
+            {% endfor %}
+            <a href="{% url 'add' %}">Добавить</a>
+        </nav>
+        <h1>Продукция</h1>
+        <section>
+            {% block content %}
+            {% endblock %}
+        </section>
+    </body>
+</html>
